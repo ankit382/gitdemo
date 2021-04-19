@@ -1,1 +1,13 @@
-welcome to new website1
+pipeline {
+agent any
+stages
+{
+    stage ('Build JobB')
+    {
+        steps {
+           sh 'env'
+           build job: 'pipelineB', parameters: [string(name: 'GITHUB_BRANCH', value: "${env.GIT_BRANCH}")]
+       }
+     }
+   } 
+ }
