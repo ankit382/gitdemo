@@ -5,7 +5,7 @@ stages
     stage ('Build JobB')
     {
         steps {
-           echo 'env'
+           echo "${env.GIT_BRANCH}"
            build job: 'pipelineB', parameters: [string(name: 'GITHUB_BRANCH', value: "${env.GIT_BRANCH}")]
        }
      }
